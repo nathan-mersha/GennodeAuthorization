@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for GenNode Authorization/lib/helper/others/controllerHelper.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">GenNode Authorization/lib/helper/others/</a> controllerHelper.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>63/84</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">43.48% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>20/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/13</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>60/75</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">52×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">67×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-yes">112×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">112×</span>
+<span class="cline-any cline-yes">38×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">71×</span>
+<span class="cline-any cline-yes">71×</span>
+<span class="cline-any cline-yes">338×</span>
+<span class="cline-any cline-yes">49×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">71×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">44×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">97×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">184×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">126×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">126×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">97×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * @author              GenNode Authorization
+ * @name                GenNode Authorization
+ * @module              controllerHelper.js
+ * @description         Controller helper functions
+ * @kind                Helper
+ * @copyright           Copyright : 2021
+ */
+&nbsp;
+let
+    debug       = require('debug')('GenNode Authorization/lib/helper/others/controllerHelper'),
+    util        = require('util'),
+    constant    = require('../../constant'),
+    errorCodes  = constant.errorCodes;
+&nbsp;
+/**
+ * @name                    - Query response handler
+ * @description             - Handles possible error and empty data return upon query, create, remove or update.
+ * @param err               - Error (Possible)
+ * @param data              - Data  (Possible)
+ * @param res               - Response object
+ * @param callback          - Callback function (error,data)
+ */
+exports.queryResponseHandler    = function queryResponseHandler(err,data,res,callback)      {
+    debug("Query response handler init...");
+&nbsp;
+    if(err){ // Possible error while querying.
+         debug(`Error : ${err.toString()}`);
+         let errMsg = errorCodes.SEC.VALIDATION_ERROR;
+         errMsg.hint = err;
+         res.status(400);
+         res.json(errMsg);
+    }else { // No Error.
+        callback(err,data);
+    }
+};
+&nbsp;
+/**
+ * @name                    - Data validator
+ * @description             - Checks if the provided data attributes is present in the request body
+ * @param paramVariables    - The param variables to check
+ * @param req               - The request object to check from
+ * @param res               - The response body to respond with any error messages if the provided request object fails to fulfill the param values.
+ * @param callback          - Passes on with null as an error if every thing is up to order.
+ */
+exports.dataValidator           = function dataValidator(paramVariables,req,res,callback)   {
+    debug(`Data validator init...`);
+&nbsp;
+    paramVariables.forEach(function (variable) {
+        req.checkBody(variable)
+            .notEmpty().withMessage(`${variable} must not be empty`);
+    });
+&nbsp;
+    let validationError = req.validationErrors();
+&nbsp;
+    if(validationError){ // caught validation error.
+        debug(`Validation Error`);
+&nbsp;
+        let errCode = errorCodes.SEC.VALIDATION_ERROR;
+        errCode.detail = validationError;
+&nbsp;
+        res.status(400);
+        res.json(errCode);
+    }else{ // validation has passed
+        debug(`Validation Passed`);
+        callback(null);
+    }
+};
+&nbsp;
+/**
+ * @name                    - Pick update data
+ * @description             - Picks valid update data from the request body
+ * @param pickFields        - List of fields that are valid to update.
+ * @param req               - Request object
+ * @param callback          - Callback function (error,validUpdateData)
+ */
+exports.pickUpdateData          = function pickUpdateData(pickFields,req,callback)          {
+    debug("Pick update data init...");
+&nbsp;
+    let updateData = {};
+    pickFields.forEach(function (field,index) { // Looping through the valid update data fields
+        if(! util.isNullOrUndefined(req.body[field])) { // check if the field exists on the query
+            updateData[field] = req.body[field];
+        }
+        if(index+1 === pickFields.length) { // Looped through the final element.
+            callback(null,updateData);
+        }
+    });
+};
+&nbsp;
+/**
+ * @name                    - Query filter
+ * @description             - Filters valid query from request
+ * @param req               - Request object
+ * @param lookingFor        - Query looking for
+ * @return {{}}             - Valid queries.
+ */
+exports.queryFilter             = function queryFilter(req, lookingFor)                     {
+    let query = {};
+    lookingFor.forEach(function (element) {
+        if(! util.isNullOrUndefined(req.query[element])){
+            query[element] = req.query[element]
+        }
+    });
+    return query;
+};
+&nbsp;
+&nbsp;
+/**
+ * @name                    - Resolve obj target
+ * @description             - Resolves string path to target
+ * @param path              - String path
+ * @param obj               - Target Object
+ * @returns {*}             - object || undefined
+ */
+exports.resolveObjTarget        = function resolveObjTarget(path, obj) {
+    return path.split('.').reduce(function(prev, curr) {
+        return prev ? prev[curr] : <span class="branch-1 cbranch-no" title="branch not covered" >null</span>
+    }, obj)
+};
+&nbsp;
+&nbsp;
+/**
+ * @name                    - Is Child contained in parent
+ * @description             - Checks if the child elements are contained in the parent element for primitive and none primitive obj
+ * @param parentArray       - Parent array to check inside
+ * @param childArray        - Child array to check
+ * @returns {boolean}       - true if child array is contained, false otherwise.
+ */
+exports.isChildContainedInParent = function isChildContainedInParent(parentArray, childArray) {
+    Object.compare = function (obj1, obj2) {
+        //Loop through properties in object 1
+        for (var p in obj1) {
+            //Check property exists on both objects
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (obj1.hasOwnProperty(p) !== obj2.hasOwnProperty(p)) return false;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            switch (typeof (obj1[p])) {</span>
+                //Deep compare objects
+                case 'object':
+<span class="cstat-no" title="statement not covered" >                    if (!Object.compare(obj1[p], obj2[p])) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                //Compare function code
+                case 'function':
+<span class="cstat-no" title="statement not covered" >                    if (typeof (obj2[p]) == 'undefined' || (p != 'compare' &amp;&amp; obj1[p].toString() != obj2[p].toString())) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                //Compare values
+                default:
+<span class="cstat-no" title="statement not covered" >                    if (obj1[p] != obj2[p]) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+            }
+        }
+&nbsp;
+        //Check object 2 for any extra properties
+<span class="cstat-no" title="statement not covered" >        for (var p in obj2) {</span>
+<span class="cstat-no" title="statement not covered" >            if (typeof (obj1[p]) == 'undefined') <span class="cstat-no" title="statement not covered" >return false;</span></span>
+        }
+<span class="cstat-no" title="statement not covered" >        return true;</span>
+    };
+&nbsp;
+&nbsp;
+    let elementsContained = 0;
+    for (let j = 0; j &lt; childArray.length; j++){
+        for(let i = 0; i &lt; parentArray.length; i++){
+            <span class="missing-if-branch" title="if path not taken" >I</span>if(Object.compare(parentArray[i], childArray[j])){
+<span class="cstat-no" title="statement not covered" >                elementsContained ++;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            }
+        }
+    }
+&nbsp;
+    return elementsContained === childArray.length;
+};
+&nbsp;
+/**
+ * @name                    - Remove child from parent
+ * @description             - Removes child array from parent array for primitive and none-primitive objects.
+ * @param parentArray       - Parent Array to remove from
+ * @param childArray        - Child array to remove
+ */
+exports.removeChildFromParent = function removeChildFromParent(parentArray, childArray) {
+    Object.compareV = function (obj1, obj2) {
+        //Loop through properties in object 1
+        for (var p in obj1) {
+            //Check property exists on both objects
+            if (obj1.hasOwnProperty(p) !== obj2.hasOwnProperty(p)) return false;
+&nbsp;
+            switch (typeof (obj1[p])) {
+                //Deep compare objects
+<span class="branch-0 cbranch-no" title="branch not covered" >                case 'object':</span>
+<span class="cstat-no" title="statement not covered" >                    if (!Object.compareV(obj1[p], obj2[p])) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                //Compare function code
+<span class="branch-1 cbranch-no" title="branch not covered" >                case 'function':</span>
+<span class="cstat-no" title="statement not covered" >                    if (typeof (obj2[p]) == 'undefined' || (p != 'compare' &amp;&amp; obj1[p].toString() != obj2[p].toString())) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                //Compare values
+                default:
+                    if (obj1[p] != obj2[p]) return false;
+            }
+        }
+&nbsp;
+        //Check object 2 for any extra properties
+&nbsp;
+        return true;
+    };
+&nbsp;
+    for (let j = 0; j &lt; childArray.length; j++){
+        for(let i = 0; i &lt; parentArray.length; i++){
+            if(Object.compareV(parentArray[i], childArray[j])){
+                delete parentArray[i]
+            }
+        }
+    }
+};</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Feb 02 2021 14:33:07 GMT+0300 (East Africa Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
