@@ -17,8 +17,7 @@ let
 
 let user = new Schema({
     // Schema definition begins here
-    firstName       : {type : String, es_indexed : true},
-    lastName        : {type : String, es_indexed : true},
+    name            : {type : String, es_indexed : true},
     phone           : {type : String, es_indexed : true},
     email           : {type : String, es_indexed : true},
     type            : {type : String, default : "user", enum : ["user", "service"]},
