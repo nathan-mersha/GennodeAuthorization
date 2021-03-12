@@ -49,8 +49,9 @@
     "mocha": "^3.2.0",
     "mocha-simple-html-reporter": "^1.1.0",
     "mochawesome": "^3.0.0",
-    "supertest": "^3.0.0",
-    "socket.io-client": "^2.2.0"
+    "nyc": "^15.1.0",
+    "socket.io-client": "^2.2.0",
+    "supertest": "^3.0.0"
   },
   "keywords": [
     "gen_node_authorization"

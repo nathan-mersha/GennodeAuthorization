@@ -59,7 +59,7 @@ function isErrorResponse(body){
  * @param body          - Body to check.
  */
 function isPaginatedResponse(body){
-    expect(body).to.be.an('object').that.has.all.keys('docs','total','limit','page','pages');
+    expect(body).to.contain.keys('docs','total','limit','page','pages');
     expect(body.docs).to.be.an('array');
     expect(body.total,body.limit,body.page,body.pages).to.be.a('number');
 }
@@ -70,7 +70,7 @@ function isPaginatedResponse(body){
  * @param body          - Body to evaluate
  */
 function isUpdateResponse(body) {
-    expect(body).to.be.an('object').that.has.all.keys('n', 'nModified', 'ok');
+    expect(body).to.contain.keys('n', 'nModified', 'ok');
 }
 
 /**
@@ -79,7 +79,7 @@ function isUpdateResponse(body) {
  * @param body          - Body to evaluate
  */
 function isRemoveResponse(body) {
-    expect(body).to.be.an('object').that.has.all.keys('n', 'ok');
+    expect(body).to.contain.keys('n', 'ok');
 }
 
 /**
@@ -91,14 +91,14 @@ function isRemoveResponse(body) {
 function isRole(body, private = false) {
     if(private) {
 // Begin body expected evaluation here for model : role (private)
-        expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'name', 'description', 'members', 'accessRoutes');
+        expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'name', 'description', 'members', 'accessRoutes');
         expect(body.name).to.be.a('String');
         expect(body.members,body.accessRoutes).to.be.a('Array');
         expect(new Date(body.description)).to.be.an.instanceof(Date);
 // End body expected evaluation here for model : role (private)
     }else{
 // Begin body expected evaluation here for model : role (public)
-        expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'name', 'description', 'members', 'accessRoutes');
+        expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'name', 'description', 'members', 'accessRoutes');
         expect(body.name).to.be.a('String');
         expect(body.members,body.accessRoutes).to.be.a('Array');
         expect(new Date(body.description)).to.be.an.instanceof(Date);
@@ -121,12 +121,12 @@ function isRole(body, private = false) {
              function isToken(body, private = false) {
                  if(private) {
 // Begin body expected evaluation here for model : token (private)
-    expect(body).to.be.an('object').that.has.all.keys('token');
+    expect(body).to.contain.keys('token');
     expect(body.token).to.be.a('String');
 // End body expected evaluation here for model : token (private)
                  }else{
 // Begin body expected evaluation here for model : token (public)
-    expect(body).to.be.an('object').that.has.all.keys('token');
+    expect(body).to.contain.keys('token');
     expect(body.token).to.be.a('String');
 // End body expected evaluation here for model : token (public)
                  }
@@ -681,15 +681,17 @@ function isRole(body, private = false) {
              * @description     - Validates if the provided data is service public data
              */
              function isService(body, private = false) {
+                 console.log("Service data : ", body);
+
                  if(private) {
 // Begin body expected evaluation here for model : service (private)
-    expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'name', 'serviceId', 'routes');
+    expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'name', 'serviceId', 'routes');
     expect(body.name,body.serviceId).to.be.a('String');
     expect(body.routes).to.be.a('Array');
 // End body expected evaluation here for model : service (private)
                  }else{
 // Begin body expected evaluation here for model : service (public)
-    expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'name', 'serviceId', 'routes');
+    expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'name', 'serviceId', 'routes');
     expect(body.name,body.serviceId).to.be.a('String');
     expect(body.routes).to.be.a('Array');
 // End body expected evaluation here for model : service (public)
@@ -985,12 +987,12 @@ function isRole(body, private = false) {
              function isUser(body, private = false) {
                  if(private) {
 // Begin body expected evaluation here for model : user (private)
-    expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'userId');
+    expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'userId');
     expect(body.userId).to.be.a('String');
 // End body expected evaluation here for model : user (private)
                  }else{
 // Begin body expected evaluation here for model : user (public)
-    expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'userId');
+    expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'userId');
     expect(body.userId).to.be.a('String');
 // End body expected evaluation here for model : user (public)
                  }
@@ -1446,11 +1448,11 @@ function isRole(body, private = false) {
                  function isSubjectACM(body) {
                      if(private) {
 // Begin body expected evaluation here for model : acm (private)
-                         expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'subject', 'accessControl');
+                         expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'subject', 'accessControl');
 // End body expected evaluation here for model : acm (private)
                      }else{
 // Begin body expected evaluation here for model : acm (public)
-                         expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'subject', 'accessControl');
+                         expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'subject', 'accessControl');
 // End body expected evaluation here for model : acm (public)
                      }
 
@@ -1461,7 +1463,7 @@ function isRole(body, private = false) {
                  if(type === "subject"){
                      isSubjectACM(body);
                  }else if(type === "object"){
-                     expect(body).to.be.an('object').that.has.all.keys('acmSubjects');
+                     expect(body).to.contain.keys('acmSubjects');
                      let acmSampleData = body.acmSubjects[0];
                      isSubjectACM(acmSampleData);
                  }
@@ -1773,11 +1775,11 @@ function isRole(body, private = false) {
             function isAdmin(body, private = false) {
                 if(private) {
 // Begin body expected evaluation here for model : admin (private)
-                    expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'userName', 'role');
+                    expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'userName', 'role');
 // End body expected evaluation here for model : user (private)
                 }else{
 // Begin body expected evaluation here for model : user (public)
-                    expect(body).to.be.an('object').that.has.all.keys('__v', '_id', 'firstModified', 'lastModified', 'userName', 'role');
+                    expect(body).to.contain.keys('__v', '_id', 'firstModified', 'lastModified', 'userName', 'role');
 // End body expected evaluation here for model : user (public)
                 }
 
@@ -1964,7 +1966,7 @@ function isRole(body, private = false) {
                 it("Should successfully retrieve server's overall status", function (done) {
                     sendRequest(url.log.status(),'get',null,200,function (err, res) {
                         let body = res.body;
-                        expect(body).to.be.an('object').that.has.all.keys(["memoryUsage", "cpuUsage", "upTime"]);
+                        expect(body).to.contain.keys(["memoryUsage", "cpuUsage", "upTime"]);
                         done();
                     });
                 });
@@ -1974,7 +1976,7 @@ function isRole(body, private = false) {
                 it("Should successfully retrieve log data", function (done) {
                     sendRequest(url.log.get(),'get',null,200,function (err, res) {
                         let body = res.body;
-                        expect(body).to.be.an('object').that.has.all.keys(["info"]);
+                        expect(body).to.contain.keys(["info"]);
                         expect(body.info).to.be.an('array');
                         expect(body.info).length.to.be.at.least(1);
                         done();
@@ -1986,7 +1988,7 @@ function isRole(body, private = false) {
                 it("Should successfully flush log data", function (done) {
                     sendRequest(url.log.flush(),'del',null,200,function (err, res) {
                         let body = res.body;
-                        expect(body).to.be.an('object').that.has.all.keys(["message"]);
+                        expect(body).to.contain.keys(["message"]);
                         expect(body.message).to.equal("Logs flushed");
                         done();
                     });
@@ -2004,9 +2006,9 @@ function isRole(body, private = false) {
              */
             function isSchema(body, pagination=true) {
                 if(pagination){
-                    expect(body).to.be.an('object').that.has.all.keys('accessControl', 'documentIds', '_id', 'schemaName', 'serviceName', 'firstModified', 'lastModified');
+                    expect(body).to.contain.keys('accessControl', 'documentIds', '_id', 'schemaName', 'serviceName', 'firstModified', 'lastModified');
                 }else{
-                    expect(body).to.be.an('object').that.has.all.keys('accessControl', 'documentIds', '_id', 'schemaName', 'serviceName', 'firstModified', 'lastModified', '__v');
+                    expect(body).to.contain.keys('accessControl', 'documentIds', '_id', 'schemaName', 'serviceName', 'firstModified', 'lastModified', '__v');
                 }
                 expect(new Date(body.lastModified),new Date(body.firstModified)).to.be.an.instanceOf(Date);
                 expect(new objectId(body.documentIds[0])).to.be.an.instanceOf(objectId);

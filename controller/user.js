@@ -44,7 +44,6 @@ exports.create          = function (req, res, next) {
      */
     function validateData (callback) {
         debug('Validate data init...');
-
         controllerHelper.dataValidator([],req,res,callback);
     }
     
@@ -95,10 +94,10 @@ exports.find            = function (req, res, next) {
             sort     : req.query.sort  === undefined ? {_id : -1}                    : req.query.sort,           // assigns default sort param value, if not specified.
             lean     : req.query.lean  === undefined ? false                         : req.query.lean,           // assigns default lean value, if not specified.
             limit    : req.query.limit === undefined ? config.COLLECTION_RETURN_SIZE : Number(req.query.limit),   // assigns default limit value (passed to the config), if not specified.
-            select   : "userId firstModified lastModified"
+            select   : "firstName lastName phone email type userId firstModified lastModified"
         };
 
-        let query = controllerHelper.queryFilter(req,["userId", "_id", "__v"]);
+        let query = controllerHelper.queryFilter(req,["firstName", "lastName", "phone", "email", "type", "userId", "_id", "__v"]);
         // get collection paginated invoked
         userDAL.getCollectionsPaginated(query,option,function (err,data) {
             queryResponseHandler(err,data,res,function (err, data) { // Possible errors are handled.
@@ -155,7 +154,7 @@ exports.update          = function (req, res, next) {
     function pickUpdateData (callback)                  {
         debug("Pick update data init...");
 
-        controllerHelper.pickUpdateData(["userId"],req,function (err,validUpdateData) { // Picking up valid update data.
+        controllerHelper.pickUpdateData(["firstName", "lastName", "phone", "email", "type", "userId"],req,function (err,validUpdateData) { // Picking up valid update data.
             if(operation !== undefined && target !== undefined){ // Operation method is an array.
                 callback(null, null);
             }else{

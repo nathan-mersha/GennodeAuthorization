@@ -17,9 +17,14 @@ let
 
 let user = new Schema({
     // Schema definition begins here
-    userId          : {type : String,es_indexed:true, required : true},
-    firstModified   : {type : Date, es_indexed : true},
-    lastModified    : {type : Date, es_indexed : true}
+    firstName       : {type : String, es_indexed : true},
+    lastName        : {type : String, es_indexed : true},
+    phone           : {type : String, es_indexed : true},
+    email           : {type : String, es_indexed : true},
+    type            : {type : String, default : "user", enum : ["user", "service"]},
+    userId          : {type : String, required : true, unique : true, es_indexed : true},
+    firstModified   : {type : Date},
+    lastModified    : {type : Date}
     // Schema definition ends here
 });
 

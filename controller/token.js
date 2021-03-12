@@ -113,7 +113,7 @@ exports.create          = function (req, res, next) {
  * @param res           - Response object
  * @param next          - Next
  */
-exports.validate        = function (req, res, next) {
+exports.validate        = function validate(req, res, next) {
     debug("Validate token init");
     let
         body = req.body,
@@ -152,6 +152,7 @@ exports.validate        = function (req, res, next) {
                 let errMsg = errorCodes.SEC.VALIDATION_ERROR;
                 errMsg.detail = err.name;
                 errMsg.message = message.ACCESS_DENIED;
+
                 res.status(401);
                 res.json(errMsg);
 
@@ -354,7 +355,7 @@ exports.validate        = function (req, res, next) {
 
         }
     }
-    
+
     /**
      * @name                - Is subject allowed to perform method on object
      * @description         - Checks if the subject is allowed to perform certain action on the object.
@@ -387,8 +388,4 @@ exports.validate        = function (req, res, next) {
         }
     }
 
-};
-
-
-
-
+}

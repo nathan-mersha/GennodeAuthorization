@@ -19,15 +19,15 @@ let
 
 let role = new Schema({
     // Schema definition begins here
-    name            : {type : String,es_indexed:true, required : true},
-    description     : {type : String,es_indexed:true},
+    name            : {type : String, required : true},
+    description     : {type : String},
     members         : [{type : Schema.Types.ObjectId, ref:'user'}],
     accessRoutes    : [{
-        route  : {type : String, es_indexed : true},
+        route  : {type : String},
         method : {type : String, enum : constants.METHODS}
     }],
-    firstModified   : {type : Date, es_indexed : true},
-    lastModified    : {type : Date, es_indexed : true}
+    firstModified   : {type : Date},
+    lastModified    : {type : Date}
     // Schema definition ends here
 });
 

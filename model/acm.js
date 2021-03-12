@@ -17,14 +17,14 @@ let
 
 let acm = new Schema({
     // Schema definition begins here
-    subject         : {type:String,es_indexed:true, required : true}, // User id, any
+    subject         : {type:String, required : true}, // User id, any
     accessControl   : {
-        read    : [{type : String, es_indexed : true}],
-        update  : [{type : String, es_indexed : true}],
-        delete  : [{type : String, es_indexed : true}]
+        read    : [{type : String, }],
+        update  : [{type : String, }],
+        delete  : [{type : String, }]
     },
-     firstModified  : {type : Date, es_indexed : true},
-     lastModified   : {type : Date, es_indexed : true}
+     firstModified  : {type : Date, },
+     lastModified   : {type : Date, }
     // Schema definition ends here
 });
 

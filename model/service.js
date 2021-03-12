@@ -18,17 +18,17 @@ let
 
 let service = new Schema({
     // Schema definition begins here
-    name            : {type : String,es_indexed:true, required : true},
-    serviceId       : {type : String,es_indexed:true, required : true},
+    name            : {type : String, required : true},
+    serviceId       : {type : String, required : true},
     routes          : [{
-        method      : {type : String, es_indexed : true, enum : constants.METHODS, required : true},
-        route       : {type : String, es_indexed : true, required : true},
-        group       : {type : String, es_indexed : true},
-        name        : {type : String, es_indexed : true},
-        description : {type : String, es_indexed : true}
+        method      : {type : String, enum : constants.METHODS, required : true},
+        route       : {type : String, required : true},
+        group       : {type : String},
+        name        : {type : String},
+        description : {type : String}
     }],
-    firstModified   : {type : Date, es_indexed : true},
-    lastModified    : {type : Date, es_indexed : true}
+    firstModified   : {type : Date},
+    lastModified    : {type : Date}
     // Schema definition ends here
 });
 

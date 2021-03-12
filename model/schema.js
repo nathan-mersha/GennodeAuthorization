@@ -17,15 +17,15 @@ let
 let schema = new Schema({
     // Schema definition begins here
     schemaName      : {type:String,es_indexed:true, required : true}, // Defines schema name (ex : "Fruit", "Company")
-    serviceName     : {type:String,es_indexed:true},
+    serviceName     : {type:String},
     accessControl   : { // Defines roles, Creator, Admin 1, Admin 2
-        read    : [{type : String, es_indexed : true}], // 
-        update  : [{type : String, es_indexed : true}],
-        delete  : [{type : String, es_indexed : true}]
+        read    : [{type : String}], // 
+        update  : [{type : String}],
+        delete  : [{type : String}]
     },
     documentIds     : [{type : String}], // ObjectIds of the schema
-    firstModified   : {type : Date, es_indexed : true},
-    lastModified    : {type : Date, es_indexed : true}
+    firstModified   : {type : Date},
+    lastModified    : {type : Date}
     // Schema definition ends here
 });
 
