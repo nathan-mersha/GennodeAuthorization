@@ -18,7 +18,7 @@ let
 
 let service = new Schema({
     // Schema definition begins here
-    name            : {type : String, required : true},
+    name            : {type : String, required : true,es_indexed:true},
     serviceId       : {type : String, required : true},
     routes          : [{
         method      : {type : String, enum : constants.METHODS, required : true},

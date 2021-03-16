@@ -3850,6 +3850,141 @@
     "groupTitle": "Schema"
   },
   {
+    "type": "post",
+    "url": "/auth/search",
+    "title": "Search",
+    "version": "0.0.1",
+    "name": "Create",
+    "group": "Search",
+    "description": "<p>Search inside acm, role, service, user</p>",
+    "permission": [
+      {
+        "name": "All"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Query": [
+          {
+            "group": "Query",
+            "type": "String",
+            "optional": false,
+            "field": "q",
+            "description": "<ul> <li>query</li> </ul>"
+          },
+          {
+            "group": "Query",
+            "type": "String",
+            "allowedValues": [
+              "\"user\"",
+              "\"role\"",
+              "\"service\"",
+              "\"schema\"",
+              "\"*\""
+            ],
+            "optional": false,
+            "field": "in",
+            "description": "<ul> <li>search in</li> </ul>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Body",
+          "content": "\n{\n    \"user\": [\n        {\n            \"took\": 47,\n            \"timed_out\": false,\n            \"_shards\": {\n                \"total\": 1,\n                \"successful\": 1,\n                \"skipped\": 0,\n                \"failed\": 0\n            },\n            \"hits\": {\n                \"total\": 1,\n                \"max_score\": 0.2876821,\n                \"hits\": [\n                    {\n                        \"_index\": \"users\",\n                        \"_type\": \"_doc\",\n                        \"_id\": \"60509879285aa335161eb52b\",\n                        \"_score\": 0.2876821,\n                        \"_source\": {\n                            \"name\": \"nathan\",\n                            \"userId\": \"123456789\"\n                        }\n                    }\n                ],\n                \"extTotal\": {\n                    \"value\": 1,\n                    \"relation\": \"eq\"\n                }\n            }\n        }\n    ],\n    \"role\": [\n        {\n            \"took\": 2,\n            \"timed_out\": false,\n            \"_shards\": {\n                \"total\": 1,\n                \"successful\": 1,\n                \"skipped\": 0,\n                \"failed\": 0\n            },\n            \"hits\": {\n                \"total\": 0,\n                \"max_score\": null,\n                \"hits\": [],\n                \"extTotal\": {\n                    \"value\": 0,\n                    \"relation\": \"eq\"\n                }\n            }\n        }\n    ],\n    \"service\": [\n        {\n            \"took\": 7,\n            \"timed_out\": false,\n            \"_shards\": {\n                \"total\": 1,\n                \"successful\": 1,\n                \"skipped\": 0,\n                \"failed\": 0\n            },\n            \"hits\": {\n                \"total\": 0,\n                \"max_score\": null,\n                \"hits\": [],\n                \"extTotal\": {\n                    \"value\": 0,\n                    \"relation\": \"eq\"\n                }\n            }\n        }\n    ],\n    \"schema\": [\n        {\n            \"took\": 2,\n            \"timed_out\": false,\n            \"_shards\": {\n                \"total\": 1,\n                \"successful\": 1,\n                \"skipped\": 0,\n                \"failed\": 0\n            },\n            \"hits\": {\n                \"total\": 0,\n                \"max_score\": null,\n                \"hits\": [],\n                \"extTotal\": {\n                    \"value\": 0,\n                    \"relation\": \"eq\"\n                }\n            }\n        }\n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3400/auth/search"
+      }
+    ],
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "type": "Object",
+            "optional": false,
+            "field": "AUTHENTICATION_NOT_SET",
+            "description": "<ul> <li>Authentication values are not set.</li> </ul>"
+          },
+          {
+            "group": "400",
+            "type": "Object",
+            "optional": false,
+            "field": "AUTHENTICATION_TYPE_NOT_ACCORD",
+            "description": "<ul> <li>Authentication type is not according to constants.</li> </ul>"
+          },
+          {
+            "group": "400",
+            "type": "Object",
+            "optional": false,
+            "field": "AUTHENTICATION_VALUE_NOT_SET",
+            "description": "<ul> <li>Authentication values are not set.</li> </ul>"
+          },
+          {
+            "group": "400",
+            "type": "Object",
+            "optional": false,
+            "field": "CAST_ERROR",
+            "description": "<ul> <li>Possible casting error.</li> </ul>"
+          },
+          {
+            "group": "400",
+            "type": "Object",
+            "optional": false,
+            "field": "NO_QUERY_DATA",
+            "description": "<ul> <li>No proper or no query data has been provided.Mainly could be caused by using wrong key in url.</li> </ul>"
+          },
+          {
+            "group": "400",
+            "type": "Object",
+            "optional": false,
+            "field": "NO_DATA_FOUND",
+            "description": "<ul> <li>No data found in query.</li> </ul>"
+          }
+        ],
+        "401": [
+          {
+            "group": "401",
+            "type": "Object",
+            "optional": false,
+            "field": "UNAUTHORIZED_ACCESS",
+            "description": "<ul> <li>Token is not authorized to access this route..</li> </ul>"
+          },
+          {
+            "group": "401",
+            "type": "Object",
+            "optional": false,
+            "field": "TOKEN_REVOKED",
+            "description": "<ul> <li>Token is revoked.</li> </ul>"
+          },
+          {
+            "group": "401",
+            "type": "Object",
+            "optional": false,
+            "field": "TOKEN_EXPIRED",
+            "description": "<ul> <li>Token has expired.</li> </ul>"
+          },
+          {
+            "group": "401",
+            "type": "Object",
+            "optional": false,
+            "field": "AUTHORIZED_SERVICE_ACCESS_DENIED",
+            "description": "<ul> <li>Service has no been granted access.</li> </ul>"
+          }
+        ]
+      }
+    },
+    "filename": "route/search.js",
+    "groupTitle": "Search"
+  },
+  {
     "type": "get",
     "url": "/auth/service/count",
     "title": "Count",

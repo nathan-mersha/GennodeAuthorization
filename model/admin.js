@@ -21,8 +21,8 @@ let admin = new Schema({
     userName        : {type : String, required : true, unique : true},
     password        : {type : String, required : true},
     role            : {type : String, default : "Admin", enum : ["Admin", "SuperAdmin"]},
-    firstModified   : {type : Date, es_indexed : true},
-    lastModified    : {type : Date, es_indexed : true}
+    firstModified   : {type : Date},
+    lastModified    : {type : Date}
     // Schema definition ends here
 });
 

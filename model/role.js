@@ -19,7 +19,7 @@ let
 
 let role = new Schema({
     // Schema definition begins here
-    name            : {type : String, required : true},
+    name            : {type : String, required : true,es_indexed:true},
     description     : {type : String},
     members         : [{type : Schema.Types.ObjectId, ref:'user'}],
     accessRoutes    : [{
