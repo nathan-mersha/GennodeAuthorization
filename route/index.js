@@ -17,7 +17,8 @@ let
     admin   = require('./admin'),
     schema  = require('./schema'),
     log     = require('./log'),
-    searchM  = require('./search');
+    stat     = require('./stat'),
+    search  = require('./search');
 // End route var declaration here
 
 /**
@@ -28,13 +29,14 @@ module.exports = function (app) {
 // Begin routing definition here
     app.use('/auth/token', token);
     app.use('/auth/service', service);
-    app.use('/auth/search', searchM);
+    app.use('/auth/search', search);
     app.use('/auth/user', user);
     app.use('/auth/role', role);
     app.use('/auth/acm', acm);
     app.use('/auth/admin', admin);
     app.use('/auth/schema', schema);
     app.use('/auth/log', log);
+    app.use('/auth/stat', stat);
 
 // End Routing definition here
 };
