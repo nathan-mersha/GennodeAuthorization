@@ -82,7 +82,7 @@ app.use(helmet());
 
 // TODO : Must remove test condition on production.
 if(process.env.test !== "true"){
-    app.use(authorize);
+    // app.use(authorize);
 }
 
 /**
